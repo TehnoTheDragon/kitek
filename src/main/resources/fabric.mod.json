@@ -1,0 +1,36 @@
+{
+    "schemaVersion" : 1,
+    "id" : "kitek",
+    "version" : "${version}",
+    "name" : "kitek",
+    "description": "A set of tools for modpack and mod developers to add custom content without too much effort.\nTools goes as add-ons to not overload core mod",
+    "authors" : ["TehnoTheDragon"],
+    "contact" : {},
+    "license" : "Apache-2.0",
+    "icon" : "assets/kitek/icon.png",
+    "environment" : "*",
+    "entrypoints" : {
+        "fabric-datagen" : [
+            "me.tehnothedragon.kitek.KitekDataGenerator"
+        ],
+        "client" : [
+            "me.tehnothedragon.kitek.client.KitekClient"
+        ],
+        "main" : [
+            "me.tehnothedragon.kitek.Kitek"
+        ]
+    },
+    "mixins" : [
+        "kitek.mixins.json",
+        {
+            "config" : "kitek.client.mixins.json",
+            "environment" : "client"
+        }
+    ],
+    "depends" : {
+        "fabricloader" : ">=${loader_version}",
+        "fabric-language-kotlin" : ">=${kotlin_loader_version}",
+        "fabric" : "*",
+        "minecraft" : "${minecraft_version}"
+    }
+}
