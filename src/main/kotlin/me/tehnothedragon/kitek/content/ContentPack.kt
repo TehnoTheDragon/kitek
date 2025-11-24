@@ -1,35 +1,25 @@
 package me.tehnothedragon.kitek.content
 
-import com.google.gson.JsonElement
-import com.google.gson.JsonParser
 import com.mojang.serialization.Codec
-import com.mojang.serialization.JsonOps
 import com.mojang.serialization.codecs.RecordCodecBuilder
-import com.sun.jdi.InvalidTypeException
 import me.tehnothedragon.kitek.Kitek
+import me.tehnothedragon.kitek.utils.CodecHelper
+import net.minecraft.util.Identifier
 import java.nio.file.Path
 
 class ContentPack(val packPath: Path, val metadata: Meta) {
     companion object {
         fun fromPackDir(path: Path): ContentPack {
-            val kitekPackJson = path.resolve("kitek.pack.json").normalize().toFile()
-                .also {
-                    if (!it.exists())
-                        throw NoSuchFileException(it)
-                    if (!it.isFile())
-                        throw InvalidTypeException("File $it expected to be a file (.json) but found directory instead.")
-                }
-                .readText()
-
-            val packJson: JsonElement = JsonParser.parseString(kitekPackJson)
-
-            val metadata: Meta = Meta.CODEC
-                .parse(JsonOps.INSTANCE, packJson)
-                .resultOrPartial(Kitek.logger::warn)
+            val metadata: Meta = CodecHelper.parseCodecWithPath(Meta.CODEC, path.resolve("kitek.pack.json").normalize())
+                .resultOrPartial(Kitek.logger::error)
                 .orElseThrow()
 
             return ContentPack(path, metadata)
         }
+    }
+
+    fun getIdentifierFor(path: String): Identifier {
+        return Identifier.of(this.metadata.id, path)
     }
 
     override fun toString(): String {
