@@ -9,7 +9,7 @@ import net.minecraft.registry.RegistryKey
 
 object KitekRegistries {
     val CONTENT_PACK: Registry<ContentPack> = create(KitekRegistryKeys.CONTENT_PACK)
-    val CONTENT_TYPE: Registry<ContentType> = create(KitekRegistryKeys.CONTENT_TYPE)
+    val CONTENT_TYPE: Registry<ContentType<*>> = create(KitekRegistryKeys.CONTENT_TYPE)
 
     private fun <T> create(registryKey: RegistryKey<Registry<T>>, attribute: RegistryAttribute = RegistryAttribute.SYNCED): Registry<T> {
         return FabricRegistryBuilder.createSimple(registryKey)
