@@ -4,6 +4,7 @@
     "package" : "me.tehnothedragon.kitek.mixin",
     "compatibilityLevel" : "JAVA_21",
     "mixins" : [
+        "ContentPackResourcePackManagerMixin"
     ],
     "injectors" : {
         "defaultRequire" : 1
