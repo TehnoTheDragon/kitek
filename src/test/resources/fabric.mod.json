@@ -1,0 +1,26 @@
+{
+    "schemaVersion" : 1,
+    "id" : "kitek_test_mod",
+    "version" : "${version}",
+    "name" : "Kitek Test Mod",
+    "description": "Test Mod",
+    "authors" : ["TehnoTheDragon"],
+    "contact" : {},
+    "license" : "Apache-2.0",
+    "icon" : "assets/kitek_test_mod/icon.png",
+    "environment" : "*",
+    "entrypoints" : {
+        "client": [
+            "me.tehnothedragon.client.kitek_test_mod.KitekTestModClient"
+        ],
+        "main": [
+            "me.tehnothedragon.kitek_test_mod.KitekTestMod"
+        ]
+    },
+    "mixins" : [
+    ],
+    "depends" : {
+        "fabric" : "*",
+        "kitek": "*"
+    }
+}
