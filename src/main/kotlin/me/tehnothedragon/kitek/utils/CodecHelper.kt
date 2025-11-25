@@ -1,5 +1,6 @@
 package me.tehnothedragon.kitek.utils
 
+import com.google.gson.JsonElement
 import com.google.gson.JsonParser
 import com.mojang.serialization.Codec
 import com.mojang.serialization.DataResult
@@ -23,5 +24,9 @@ object CodecHelper {
 
     fun <T> parseCodecWithString(codec: Codec<T>, string: String, jsonOps: JsonOps = JsonOps.INSTANCE): DataResult<T> {
         return codec.parse(jsonOps, JsonParser.parseString(string))
+    }
+
+    fun <T> parseCodecWithJson(codec: Codec<T>, jsonElement: JsonElement, jsonOps: JsonOps = JsonOps.INSTANCE): DataResult<T> {
+        return codec.parse(jsonOps, jsonElement)
     }
 }
