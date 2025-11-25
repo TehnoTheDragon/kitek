@@ -52,16 +52,6 @@ loom {
     }
 }
 
-sourceSets {
-    val kitekTestMod by creating {
-        compileClasspath += sourceSets.main.get().compileClasspath
-        runtimeClasspath += sourceSets.main.get().runtimeClasspath
-
-        compileClasspath += sourceSets.getByName("test").compileClasspath
-        runtimeClasspath += sourceSets.getByName("test").runtimeClasspath
-    }
-}
-
 fabricApi {
     configureDataGeneration {
         client = true
@@ -84,12 +74,6 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
-
-    // Test
-//    "kitekTeshModImplementation"(sourceSets.main.get().output)
-//    "kitekTeshModClientImplementation"(sourceSets.main.get().output)
-//    "kitekTeshModClientImplementation"(sourceSets.getByName("client").output)
-//    "kitekTeshModClientImplementation"(sourceSets.getByName("test").output)
 }
 
 tasks.processResources {
