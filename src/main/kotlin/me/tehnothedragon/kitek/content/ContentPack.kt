@@ -18,6 +18,10 @@ class ContentPack(val packPath: Path, val metadata: Meta) {
         }
     }
 
+    fun getIdentifier(): Identifier {
+        return Identifier.of(this.metadata.id)
+    }
+
     fun getIdentifierFor(path: String): Identifier {
         return Identifier.of(this.metadata.id, path)
     }
