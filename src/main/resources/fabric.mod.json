@@ -3,7 +3,7 @@
     "id" : "kitek",
     "version" : "${version}",
     "name" : "kitek",
-    "description": "A set of tools for modpack and mod developers to add custom content without too much effort.\nTools goes as add-ons to not overload core mod",
+    "description": "Mod library that adds new way to add new content into game without creating mods",
     "authors" : ["TehnoTheDragon"],
     "contact" : {},
     "license" : "Apache-2.0",
