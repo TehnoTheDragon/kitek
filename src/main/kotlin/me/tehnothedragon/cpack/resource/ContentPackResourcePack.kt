@@ -1,9 +1,9 @@
-package me.tehnothedragon.kitek.resource
+package me.tehnothedragon.cpack.resource
 
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import me.tehnothedragon.kitek.Kitek
-import me.tehnothedragon.kitek.content.ContentPack
+import me.tehnothedragon.cpack.CPack
+import me.tehnothedragon.cpack.content.ContentPack
 import net.minecraft.SharedConstants
 import net.minecraft.resource.*
 import net.minecraft.resource.metadata.ResourceMetadataReader
@@ -50,7 +50,7 @@ class ContentPackResourcePack(
                     .replace(separator, "")
 
                 if (!RESOURCE_PACK_PATH.matcher(filename).matches()) {
-                    Kitek.logger.warn("Kitek ContentPackResourcePack: ignored invalid namespace: $filename in content pack ID ${this.contentPack.metadata.id}")
+                    CPack.logger.warn("ContentPackResourcePack: ignored invalid namespace: $filename in content pack ID ${this.contentPack.metadata.id}")
                     continue
                 }
 
@@ -164,7 +164,7 @@ class ContentPackResourcePack(
                 val identifier = Identifier.tryParse(namespace, filename)
 
                 if (identifier == null) {
-                    Kitek.logger.error("Invalid path in content pack resource-pack $id: $namespace:$filename, ignoring")
+                    CPack.logger.error("Invalid path in content pack resource-pack $id: $namespace:$filename, ignoring")
                 } else {
                     visitor.accept(identifier, InputSupplier.create(file))
                 }

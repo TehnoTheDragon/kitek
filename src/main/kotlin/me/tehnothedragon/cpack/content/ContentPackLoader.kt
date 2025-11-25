@@ -1,7 +1,7 @@
-package me.tehnothedragon.kitek.content
+package me.tehnothedragon.cpack.content
 
-import me.tehnothedragon.kitek.Kitek
-import me.tehnothedragon.kitek.registry.KitekRegistries
+import me.tehnothedragon.cpack.CPack
+import me.tehnothedragon.cpack.registry.CPackRegistries
 import java.nio.file.FileVisitOption
 import java.nio.file.Files
 import kotlin.io.path.exists
@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.jvmName
 
 internal class ContentPackLoader(val contentPack: ContentPack) {
     fun load() {
-        Kitek.logger.debug("Loading {}", contentPack)
+        CPack.logger.debug("Loading {}", contentPack)
         tryLoadContent()
     }
 
@@ -21,10 +21,10 @@ internal class ContentPackLoader(val contentPack: ContentPack) {
 
         if (!contentDirPath.exists()) return
 
-        Kitek.logger.debug("+ Loading Content")
+        CPack.logger.debug("+ Loading Content")
 
-        KitekRegistries.CONTENT_TYPE.forEach<ContentType<*>> { contentType ->
-            Kitek.logger.debug("+ Applying Content Type `${contentType::class.jvmName}`")
+        CPackRegistries.CONTENT_TYPE.forEach<ContentType<*>> { contentType ->
+            CPack.logger.debug("+ Applying Content Type `${contentType::class.jvmName}`")
             Files.walk(contentDirPath, 10, FileVisitOption.FOLLOW_LINKS)
                 .forEach { file ->
                     if (file.isDirectory()) return@forEach

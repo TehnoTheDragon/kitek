@@ -1,11 +1,11 @@
-package me.tehnothedragon.kitek_test_mod
+package me.tehnothedragon.cpack_test_mod
 
 import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.RecordCodecBuilder
-import me.tehnothedragon.kitek.content.CodecContentType
-import me.tehnothedragon.kitek.content.ContentPack
-import me.tehnothedragon.kitek.content.ContentType
-import me.tehnothedragon.kitek.registry.KitekRegistries
+import me.tehnothedragon.cpack.content.CodecContentType
+import me.tehnothedragon.cpack.content.ContentPack
+import me.tehnothedragon.cpack.content.ContentType
+import me.tehnothedragon.cpack.registry.CPackRegistries
 import net.fabricmc.api.ModInitializer
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
@@ -13,9 +13,9 @@ import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier
 import org.slf4j.LoggerFactory
 
-class KitekTestMod: ModInitializer {
+class CPackTestMod: ModInitializer {
     override fun onInitialize() {
-        Registry.register(KitekRegistries.CONTENT_TYPE, Identifier.of("kitek_test_mod", "item"), ItemContentType())
+        Registry.register(CPackRegistries.CONTENT_TYPE, Identifier.of("kitek_test_mod", "item"), ItemContentType())
     }
 
     class ItemContentType: CodecContentType<ItemContentType.Data> {

@@ -1,29 +1,26 @@
 {
     "schemaVersion" : 1,
-    "id" : "kitek",
+    "id" : "cpack",
     "version" : "${version}",
-    "name" : "kitek",
+    "name" : "Content Pack",
     "description": "Mod library that adds new way to add new content into game without creating mods",
     "authors" : ["TehnoTheDragon"],
     "contact" : {},
     "license" : "Apache-2.0",
-    "icon" : "assets/kitek/icon.png",
+    "icon" : "assets/cpack/icon.png",
     "environment" : "*",
     "entrypoints" : {
-        "fabric-datagen" : [
-            "me.tehnothedragon.kitek.KitekDataGenerator"
-        ],
         "client" : [
-            "me.tehnothedragon.kitek.client.KitekClient"
+            "me.tehnothedragon.cpack.client.CPackClient"
         ],
         "main" : [
-            "me.tehnothedragon.kitek.Kitek"
+            "me.tehnothedragon.cpack.CPack"
         ]
     },
     "mixins" : [
-        "kitek.mixins.json",
+        "cpack.mixins.json",
         {
-            "config" : "kitek.client.mixins.json",
+            "config" : "cpack.client.mixins.json",
             "environment" : "client"
         }
     ],

@@ -1,7 +1,7 @@
-package me.tehnothedragon.kitek.content
+package me.tehnothedragon.cpack.content
 
-import me.tehnothedragon.kitek.Kitek
-import me.tehnothedragon.kitek.registry.KitekRegistries
+import me.tehnothedragon.cpack.CPack
+import me.tehnothedragon.cpack.registry.CPackRegistries
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier
@@ -32,15 +32,15 @@ object ContentLoader {
         getContentPacks().forEach {
             val contentPack = ContentPack.fromPackDir(it)
             Registry.register(
-                KitekRegistries.CONTENT_PACK,
-                Identifier.of(Kitek.MODID, contentPack.metadata.id),
+                CPackRegistries.CONTENT_PACK,
+                Identifier.of(CPack.MODID, contentPack.metadata.id),
                 contentPack
             )
         }
     }
 
     private fun processPacks() {
-        KitekRegistries.CONTENT_PACK.forEach { ContentPackLoader(it).load() }
+        CPackRegistries.CONTENT_PACK.forEach { ContentPackLoader(it).load() }
     }
 
     internal fun start() {

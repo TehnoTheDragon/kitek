@@ -1,7 +1,7 @@
-package me.tehnothedragon.kitek.resource
+package me.tehnothedragon.cpack.resource
 
-import me.tehnothedragon.kitek.Kitek
-import me.tehnothedragon.kitek.content.ContentPack
+import me.tehnothedragon.cpack.CPack
+import me.tehnothedragon.cpack.content.ContentPack
 import net.minecraft.registry.Registry
 import net.minecraft.resource.*
 import net.minecraft.text.Text
@@ -20,7 +20,7 @@ class ContentPackResourcePackProvider(private val supplier: Supplier<Registry<Co
 
         val resourcePack = ContentPackResourcePack(contentPack, info)
 
-        Kitek.logger.info("Created ResourcePackInfo $info")
+        CPack.logger.info("Created ResourcePackInfo $info")
 
         val position = ResourcePackPosition(
             true,

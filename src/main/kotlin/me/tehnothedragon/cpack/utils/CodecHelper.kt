@@ -1,4 +1,4 @@
-package me.tehnothedragon.kitek.utils
+package me.tehnothedragon.cpack.utils
 
 import com.google.gson.JsonElement
 import com.google.gson.JsonParser

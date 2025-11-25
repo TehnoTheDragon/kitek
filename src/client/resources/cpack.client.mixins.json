@@ -1,10 +1,9 @@
 {
     "required" : true,
     "minVersion" : "0.8",
-    "package" : "me.tehnothedragon.kitek.mixin",
+    "package" : "me.tehnothedragon.cpack.mixin.client",
     "compatibilityLevel" : "JAVA_21",
-    "mixins" : [
-        "ContentPackResourcePackManagerMixin"
+    "client" : [
     ],
     "injectors" : {
         "defaultRequire" : 1

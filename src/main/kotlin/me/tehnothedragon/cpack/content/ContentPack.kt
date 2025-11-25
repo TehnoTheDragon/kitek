@@ -1,17 +1,17 @@
-package me.tehnothedragon.kitek.content
+package me.tehnothedragon.cpack.content
 
 import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.RecordCodecBuilder
-import me.tehnothedragon.kitek.Kitek
-import me.tehnothedragon.kitek.utils.CodecHelper
+import me.tehnothedragon.cpack.CPack
+import me.tehnothedragon.cpack.utils.CodecHelper
 import net.minecraft.util.Identifier
 import java.nio.file.Path
 
 class ContentPack(val packPath: Path, val metadata: Meta) {
     companion object {
         fun fromPackDir(path: Path): ContentPack {
-            val metadata: Meta = CodecHelper.parseCodecWithPath(Meta.CODEC, path.resolve("kitek.pack.json").normalize())
-                .resultOrPartial(Kitek.logger::error)
+            val metadata: Meta = CodecHelper.parseCodecWithPath(Meta.CODEC, path.resolve("pack.json").normalize())
+                .resultOrPartial(CPack.logger::error)
                 .orElseThrow()
 
             return ContentPack(path, metadata)

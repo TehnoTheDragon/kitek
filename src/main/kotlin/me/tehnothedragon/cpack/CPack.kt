@@ -1,13 +1,13 @@
-package me.tehnothedragon.kitek
+package me.tehnothedragon.cpack
 
-import me.tehnothedragon.kitek.content.ContentLoader
+import me.tehnothedragon.cpack.content.ContentLoader
 import net.fabricmc.api.ModInitializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class Kitek : ModInitializer {
+class CPack : ModInitializer {
     companion object {
-        const val MODID: String = "kitek"
+        const val MODID: String = "cpack"
         internal val logger: Logger = LoggerFactory.getLogger(MODID)
     }
 

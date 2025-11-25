@@ -1,7 +1,7 @@
-package me.tehnothedragon.kitek.mixin;
+package me.tehnothedragon.cpack.mixin;
 
-import me.tehnothedragon.kitek.registry.KitekRegistries;
-import me.tehnothedragon.kitek.resource.ContentPackResourcePackProvider;
+import me.tehnothedragon.cpack.registry.CPackRegistries;
+import me.tehnothedragon.cpack.resource.ContentPackResourcePackProvider;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.resource.ResourcePackProvider;
 import org.spongepowered.asm.mixin.Final;
@@ -27,6 +27,6 @@ public class ContentPackResourcePackManagerMixin {
     public void construct(ResourcePackProvider[] providers1, CallbackInfo ci) {
         providers = new LinkedHashSet<>(List.of(providers1));
 
-        providers.add(new ContentPackResourcePackProvider(KitekRegistries.INSTANCE::getCONTENT_PACK));
+        providers.add(new ContentPackResourcePackProvider(CPackRegistries.INSTANCE::getCONTENT_PACK));
     }
 }

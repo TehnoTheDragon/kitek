@@ -1,4 +1,4 @@
-package me.tehnothedragon.kitek.content
+package me.tehnothedragon.cpack.content
 
 import java.nio.file.Path
 

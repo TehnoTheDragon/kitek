@@ -1,8 +1,8 @@
-package me.tehnothedragon.kitek.client
+package me.tehnothedragon.cpack.client
 
 import net.fabricmc.api.ClientModInitializer
 
-class KitekClient : ClientModInitializer {
+class CPackClient : ClientModInitializer {
     override fun onInitializeClient() {
 
     }

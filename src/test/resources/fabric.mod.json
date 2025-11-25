@@ -1,26 +1,26 @@
 {
     "schemaVersion" : 1,
-    "id" : "kitek_test_mod",
+    "id" : "cpack_test_mod",
     "version" : "${version}",
-    "name" : "Kitek Test Mod",
+    "name" : "CPack Test Mod",
     "description": "Test Mod",
     "authors" : ["TehnoTheDragon"],
     "contact" : {},
     "license" : "Apache-2.0",
-    "icon" : "assets/kitek_test_mod/icon.png",
+    "icon" : "assets/cpack_test_mod/icon.png",
     "environment" : "*",
     "entrypoints" : {
         "client": [
-            "me.tehnothedragon.client.kitek_test_mod.KitekTestModClient"
+            "me.tehnothedragon.client.cpack_test_mod.CPackTestModClient"
         ],
         "main": [
-            "me.tehnothedragon.kitek_test_mod.KitekTestMod"
+            "me.tehnothedragon.cpack_test_mod.CPackTestMod"
         ]
     },
     "mixins" : [
     ],
     "depends" : {
         "fabric" : "*",
-        "kitek": "*"
+        "cpack": "*"
     }
 }

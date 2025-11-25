@@ -27,26 +27,26 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        register("kitek") {
+        register("cpack") {
             sourceSet("main")
             sourceSet("client")
         }
 
-        register("kitek-test") {
+        register("cpack-test") {
             sourceSet("test")
         }
     }
 
     runs {
-        create("kitekTestClient") {
+        create("TestClient") {
             client()
-            name("Kitek Test Client")
+            name("Test Client")
             source(sourceSets.getByName("test"))
         }
 
-        create("kitekTestServer") {
+        create("TestServer") {
             server()
-            name("Kitek Test Server")
+            name("Test Server")
             source(sourceSets.getByName("test"))
         }
     }
