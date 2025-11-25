@@ -31,6 +31,34 @@ loom {
             sourceSet("main")
             sourceSet("client")
         }
+
+        register("kitek-test") {
+            sourceSet("test")
+        }
+    }
+
+    runs {
+        create("kitekTestClient") {
+            client()
+            name("Kitek Test Client")
+            source(sourceSets.getByName("test"))
+        }
+
+        create("kitekTestServer") {
+            server()
+            name("Kitek Test Server")
+            source(sourceSets.getByName("test"))
+        }
+    }
+}
+
+sourceSets {
+    val kitekTestMod by creating {
+        compileClasspath += sourceSets.main.get().compileClasspath
+        runtimeClasspath += sourceSets.main.get().runtimeClasspath
+
+        compileClasspath += sourceSets.getByName("test").compileClasspath
+        runtimeClasspath += sourceSets.getByName("test").runtimeClasspath
     }
 }
 
@@ -56,6 +84,12 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
+
+    // Test
+//    "kitekTeshModImplementation"(sourceSets.main.get().output)
+//    "kitekTeshModClientImplementation"(sourceSets.main.get().output)
+//    "kitekTeshModClientImplementation"(sourceSets.getByName("client").output)
+//    "kitekTeshModClientImplementation"(sourceSets.getByName("test").output)
 }
 
 tasks.processResources {
