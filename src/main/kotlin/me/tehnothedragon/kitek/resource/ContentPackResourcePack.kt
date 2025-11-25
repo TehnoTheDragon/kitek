@@ -137,7 +137,6 @@ class ContentPackResourcePack(
             return null
         }
 
-        Kitek.logger.info("Requested: ${id.namespace}:${id.path}")
         val path = getPath(getFilename(type, id))
         return path?.let { InputSupplier.create(it) }
     }
